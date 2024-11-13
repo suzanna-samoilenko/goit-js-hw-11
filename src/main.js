@@ -35,7 +35,13 @@ function onSubmitForm(event) {
       }
     })
     .catch(error => {
-      console.error('Failed to load images:', error);
+      console.error('Error fetching images:', error);
+      iziToast.error({
+        position: 'topRight',
+        title: 'Error',
+        message:
+          'Something went wrong while fetching images. Please try again later!',
+      });
     })
     .finally(() => {
       hideLoader();
